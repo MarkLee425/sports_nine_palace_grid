@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  client:
+    container_name: client
+    build:
+      context: ./packages/client
+      target: development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./packages/client/src:/code/src
+      - /code/node_modules
+    networks:
+      - public
+networks:
+  public:
+  private:
